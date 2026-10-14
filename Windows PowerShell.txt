@@ -1,0 +1,5 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+PS C:\Users\admin> Get-Content .\server.log | Select-String "ERROR" | Out-File -FilePath .\daily_report.txt -Append -Encoding utf8
+PS C:\Users\admin> Get-Content .\server.log -Tail 0 -Wait | Where-Object { $_ -match "ERROR" } | Out-File -FilePath .\daily_report.txt -Append -Encoding utf8

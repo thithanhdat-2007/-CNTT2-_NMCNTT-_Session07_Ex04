@@ -1,0 +1,15 @@
+PHẦN 1: SO SÁNH HAI TOÁN TỬ > VÀ >>
+1. Toán tử ghi đè (>)
+   - Tạo tệp mới nếu chưa có. Nếu tệp đã tồn tại, toàn bộ nội dung cũ bị thay bằng kết quả mới.
+   - Có tác dụng tương đương Out-File.
+   - Rủi ro: làm mất dữ liệu cũ nếu dùng nhầm.
+   - Phù hợp tạo báo cáo mới đầu ca sáng khi không cần giữ nội dung trước đó trong tệp này.
+2. Toán tử ghi nối (>>)
+   - Tạo tệp mới nếu chưa có. Nếu tệp đã tồn tại, dữ liệu mới được thêm vào cuối tệp và giữ nguyên nội dung cũ.
+   - Có tác dụng tương đương Out-File -Append.
+   - Rủi ro: tệp lớn dần và có thể trùng dữ liệu nếu ghi lại cùng một nội dung nhiều lần.
+   - Phù hợp ghi nhật ký liên tục và theo dõi hệ thống 24/7.
+3. Encoding đầu ra
+Cả hai toán tử mặc định ghi UTF-16LE trên Windows PowerShell 5.1 và UTF-8 không BOM trên PowerShell 7. Khi ghi nối, cần bảo đảm encoding mới khớp với encoding của tệp có sẵn để tránh lỗi hiển thị ký tự.
+4. Hậu quả khi dùng nhầm
+Nếu gõ nhầm > thay vì >> vào cuối tháng, báo cáo tích lũy của 30 ngày trước sẽ bị ghi đè, chỉ còn kết quả của lần chạy mới. Việc đổi lại thành >> không khôi phục được dữ liệu đã mất.
